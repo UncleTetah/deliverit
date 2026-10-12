@@ -1,0 +1,47 @@
+2026-10-08T13:01:00: ℹ️  🚀 DeliverIt API listening on http://localhost:4000
+2026-10-08T13:02:08: ℹ️  🚀 DeliverIt API listening on http://localhost:4000
+2026-10-08T13:19:52: ℹ️  🚀 DeliverIt API listening on http://localhost:4000
+2026-10-08T13:23:55: ℹ️  🚀 DeliverIt API listening on http://localhost:4000
+2026-10-08T13:24:19: [0mGET /health [32m200[0m 13.041 ms - 30[0m
+2026-10-08T13:24:22: [0mGET /favicon.ico [33m404[0m 5.464 ms - 57[0m
+2026-10-08T13:24:33: [0mGET /health [32m200[0m 0.536 ms - 30[0m
+2026-10-08T13:24:47: [0mPOST /api/auth/login [32m200[0m 681.265 ms - 508[0m
+2026-10-08T13:24:47: [0mGET /health [32m200[0m 0.591 ms - 30[0m
+2026-10-08T13:24:47: [0mGET /api/couriers/me [36m304[0m 16.543 ms - -[0m
+2026-10-08T13:24:48: [0mGET /api/deliveries?scope=available [36m304[0m 31.040 ms - -[0m
+2026-10-08T13:24:48: [0mGET /api/deliveries [36m304[0m 225.099 ms - -[0m
+2026-10-08T14:22:01: [0mGET /api/deliveries?scope=available [36m304[0m 225.690 ms - -[0m
+2026-10-08T14:22:01: [0mGET /api/deliveries [36m304[0m 168.997 ms - -[0m
+2026-10-08T14:22:17: [0mGET /health [32m200[0m 1.506 ms - 30[0m
+2026-10-08T14:22:50: [0mPOST /api/auth/login [33m401[0m 612.117 ms - 43[0m
+2026-10-08T14:22:52: [0mPOST /api/auth/login [33m401[0m 507.824 ms - 43[0m
+2026-10-08T14:23:16: [0mPOST /api/auth/login [33m401[0m 518.303 ms - 43[0m
+2026-10-08T14:23:42: [0mPOST /api/auth/login [33m401[0m 503.401 ms - 43[0m
+2026-10-08T14:38:56: [0mGET /health [32m200[0m 10.897 ms - 30[0m
+2026-10-08T14:39:17: [0mPOST /api/auth/login [32m200[0m 661.697 ms - 484[0m
+2026-10-08T14:39:17: [0mGET /health [32m200[0m 0.624 ms - 30[0m
+2026-10-08T14:39:17: [0mGET /api/deliveries [32m200[0m 32.144 ms - 2507[0m
+2026-10-08T14:39:30: [0mGET /health [32m200[0m 0.384 ms - 30[0m
+2026-10-08T14:39:30: [0mGET /api/deliveries/DIT-D-20261008-0003 [36m304[0m 31.336 ms - -[0m
+2026-10-08T14:39:30: [0mGET /api/deliveries/DIT-D-20261008-0003/track [36m304[0m 121.217 ms - -[0m
+2026-10-08T14:39:37: [0mGET /health [32m200[0m 0.714 ms - 30[0m
+2026-10-08T14:39:37: [0mGET /api/deliveries/DIT-D-20261007-0002 [32m200[0m 8.230 ms - 818[0m
+2026-10-08T14:39:37: [0mGET /api/deliveries/DIT-D-20261007-0002/track [32m200[0m 14.646 ms - 139[0m
+2026-10-08T14:39:50: [0mGET /health [32m200[0m 0.413 ms - 30[0m
+2026-10-08T14:39:50: [0mGET /api/deliveries/DIT-D-20261007-0001 [32m200[0m 9.036 ms - 866[0m
+2026-10-08T14:39:50: [0mGET /api/deliveries/DIT-D-20261007-0001/track [32m200[0m 12.732 ms - 470[0m
+2026-10-08T14:48:04: ℹ️  🚀 DeliverIt API listening on http://0.0.0.0:4000
+2026-10-08T14:48:04: ℹ️     Local:   http://localhost:4000
+2026-10-08T14:48:04: ℹ️     Network: http://<your-LAN-IP>:4000
+2026-10-08T14:57:22: ℹ️  🚀 DeliverIt API listening on http://0.0.0.0:4000
+2026-10-08T14:57:22: ℹ️     Local:   http://localhost:4000
+2026-10-08T14:57:22: ℹ️     Network: http://<your-LAN-IP>:4000
+2026-10-08T15:05:08: [0mGET /health [32m200[0m 31.356 ms - 30[0m
+2026-10-08T15:05:22: [0mPOST /api/auth/login [32m200[0m 738.238 ms - 508[0m
+2026-10-08T15:05:22: [0mGET /health [32m200[0m 1.087 ms - 30[0m
+2026-10-08T15:05:22: [0mGET /api/couriers/me [32m200[0m 18.046 ms - 466[0m
+2026-10-08T15:05:22: [0mGET /api/deliveries?scope=available [32m200[0m 27.601 ms - 17[0m
+2026-10-08T15:05:22: [0mGET /api/deliveries [32m200[0m 95.202 ms - 785[0m
+2026-10-08T15:05:30: [0mGET /health [32m200[0m 0.503 ms - 30[0m
+2026-10-08T15:05:30: [0mGET /api/deliveries/DIT-D-20261008-0003 [32m200[0m 7.331 ms - 843[0m
+2026-10-08T15:05:30: [0mGET /api/deliveries/DIT-D-20261008-0003/track [32m200[0m 15.144 ms - 492[0m

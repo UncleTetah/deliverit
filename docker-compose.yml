@@ -1,0 +1,22 @@
+version: '3.9'
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: deliverit_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: deliverit
+      POSTGRES_PASSWORD: deliverit_dev
+      POSTGRES_DB: deliverit
+    ports:
+      - "5432:5432"
+    volumes:
+      - deliverit_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U deliverit"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  deliverit_pgdata:

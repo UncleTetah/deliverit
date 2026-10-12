@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — DeliverIt</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="brand"><i class="fa-solid fa-truck-fast"></i> DeliverIt</a>
+      <button class="nav-toggle" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+      <div class="nav-links">
+        <a href="track.html">Track</a>
+        <a href="login.html" class="btn btn-outline">Login</a>
+        <a href="register.html" class="btn btn-primary">Sign Up</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="info-page">
+    <h1>Privacy Policy</h1>
+    <p class="lead">At DeliverIt, we are committed to protecting your privacy and ensuring the security of your personal information.</p>
+
+    <h2>Information We Collect</h2>
+    <p>We collect information you provide directly to us, including:</p>
+    <ul>
+      <li>Contact information (name, email, phone number)</li>
+      <li>Account credentials</li>
+      <li>Delivery details and preferences</li>
+      <li>Payment information (processed securely through partners)</li>
+      <li>Location data for delivery tracking</li>
+    </ul>
+
+    <h2>How We Use Your Information</h2>
+    <ul>
+      <li>Provide and improve our delivery services</li>
+      <li>Connect service seekers with delivery providers</li>
+      <li>Process payments securely</li>
+      <li>Communicate about your deliveries</li>
+      <li>Ensure the safety and security of our platform</li>
+      <li>Send important updates about our services</li>
+    </ul>
+
+    <h2>Data Security</h2>
+    <p>We implement industry-standard security measures to protect your personal information from unauthorized access, alteration, or disclosure. Your data is encrypted and stored securely.</p>
+
+    <h2>Your Rights</h2>
+    <ul>
+      <li>Access your personal information</li>
+      <li>Correct inaccurate data</li>
+      <li>Request deletion of your data</li>
+      <li>Opt-out of marketing communications</li>
+    </ul>
+
+    <p>Questions? Email us at <a href="mailto:info@deliveritzim.com">info@deliveritzim.com</a>.</p>
+
+    <a href="../index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">&copy; <span id="year"></span> DeliverIt Zimbabwe. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const t = document.querySelector('.nav-toggle'), l = document.querySelector('.nav-links');
+    if (t && l) t.addEventListener('click', () => l.classList.toggle('open'));
+  </script>
+</body>
+</html>

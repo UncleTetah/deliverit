@@ -1,0 +1,94 @@
+/* =========================================================
+   DeliverIt — base.css
+   Reset, design tokens, typography
+   ========================================================= */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Brand */
+  --color-primary:        #2563eb;
+  --color-primary-hover:  #1d4ed8;
+  --color-primary-soft:   #eff6ff;
+  --color-primary-ring:   rgba(37, 99, 235, 0.15);
+
+  /* Neutrals */
+  --color-bg:             #f8fafc;
+  --color-surface:        #ffffff;
+  --color-text:           #0f172a;
+  --color-text-soft:      #334155;
+  --color-muted:          #64748b;
+  --color-border:         #e2e8f0;
+  --color-border-strong:  #cbd5e1;
+
+  /* Semantic */
+  --color-danger:         #dc2626;
+  --color-danger-soft:    #fee2e2;
+  --color-success:        #16a34a;
+  --color-success-soft:   #dcfce7;
+
+  /* Radii & shadows */
+  --radius:               12px;
+  --radius-sm:            8px;
+  --radius-lg:            16px;
+  --shadow-xs:            0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-sm:            0 1px 3px rgba(15, 23, 42, 0.08);
+  --shadow-md:            0 4px 16px rgba(15, 23, 42, 0.08);
+  --shadow-lg:            0 12px 32px rgba(15, 23, 42, 0.10);
+
+  /* Layout */
+  --container:            1160px;
+  --nav-height:           68px;
+
+  /* Fonts */
+  --font-sans: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+  line-height: 1.25;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+h1 { font-size: clamp(1.9rem, 4.5vw, 3rem); letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -0.01em; }
+h3 { font-size: 1.15rem; }
+h4 { font-size: 1rem; }
+
+p { color: var(--color-text-soft); }
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+a:hover { color: var(--color-primary-hover); }
+
+img, svg { max-width: 100%; display: block; }
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+::selection {
+  background: var(--color-primary);
+  color: #fff;
+}

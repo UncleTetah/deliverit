@@ -1,0 +1,10 @@
+{
+  "watch": ["src"],
+  "ignore": ["node_modules", "logs", "*.test.js"],
+  "ext": "js,json",
+  "delay": 500,
+  "signal": "SIGTERM",
+  "cleanExit": true,
+  "restartable": "rs",
+  "verbose": false
+}

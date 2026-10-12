@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Courier Profile — DeliverIt</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="brand">
+        <i class="fa-solid fa-truck-fast"></i> DeliverIt
+      </a>
+      <div class="nav-links">
+        <a href="dashboard.html">Dashboard</a>
+        <span id="greeting" class="nav-user"></span>
+        <button id="logout" class="btn btn-outline">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <header class="page-header">
+      <div>
+        <h1>Courier Profile</h1>
+        <p class="muted">Complete your vehicle &amp; licence details so customers can match you to their jobs.</p>
+      </div>
+    </header>
+
+    <form id="courier-form" class="card">
+      <h3>Vehicle</h3>
+
+      <div class="form-group">
+        <label for="vehicle_type">Vehicle type</label>
+        <select id="vehicle_type" name="vehicle_type" required>
+          <option value="motorbike">Motorbike (up to ~20 kg)</option>
+          <option value="car">Car (up to ~100 kg)</option>
+          <option value="van">Van (up to ~500 kg)</option>
+          <option value="truck">Truck (up to ~5 000 kg)</option>
+        </select>
+      </div>
+
+      <div class="grid-2">
+        <div class="form-group">
+          <label for="vehicle_make">Make</label>
+          <input id="vehicle_make" name="vehicle_make" placeholder="Toyota" required>
+        </div>
+        <div class="form-group">
+          <label for="vehicle_model">Model</label>
+          <input id="vehicle_model" name="vehicle_model" placeholder="Hilux" required>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="form-group">
+          <label for="vehicle_color">Color</label>
+          <input id="vehicle_color" name="vehicle_color" placeholder="White" required>
+        </div>
+        <div class="form-group">
+          <label for="vehicle_plate">Plate number</label>
+          <input id="vehicle_plate" name="vehicle_plate" placeholder="ABC 1234" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="vehicle_capacity_kg">Max load (kg)</label>
+        <input id="vehicle_capacity_kg" name="vehicle_capacity_kg" type="number" min="1" step="0.5" placeholder="e.g. 20" required>
+      </div>
+
+      <h3>Driver's Licence</h3>
+
+      <div class="grid-2">
+        <div class="form-group">
+          <label for="license_class">Licence class</label>
+          <select id="license_class" name="license_class" required>
+            <option value="A">A / A1 — Motorcycles</option>
+            <option value="B">B / BE — Light motor vehicles</option>
+            <option value="C">C / CE — Heavy trucks</option>
+            <option value="D">D / DE — Buses</option>
+            <option value="BE">BE (agric/plant) — Tractors &amp; plant</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="license_number">Licence number</label>
+          <input id="license_number" name="license_number" required>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="form-group">
+          <label for="license_expiry">Expiry (optional)</label>
+          <input id="license_expiry" name="license_expiry" type="date">
+        </div>
+        <div class="form-group">
+          <label for="max_active_jobs">Concurrent jobs allowed</label>
+          <input id="max_active_jobs" name="max_active_jobs" type="number" min="1" max="20" value="1">
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block">Save Profile</button>
+      <p class="form-error" id="error" hidden></p>
+      <p class="form-success" id="success" hidden>Profile saved.</p>
+    </form>
+  </main>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/pages/courier-profile.js"></script>
+</body>
+</html>

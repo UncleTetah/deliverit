@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How It Works — DeliverIt</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="brand"><i class="fa-solid fa-truck-fast"></i> DeliverIt</a>
+      <button class="nav-toggle" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+      <div class="nav-links">
+        <a href="track.html">Track</a>
+        <a href="login.html" class="btn btn-outline">Login</a>
+        <a href="register.html" class="btn btn-primary">Sign Up</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="info-page">
+    <h1>How DeliverIt Works</h1>
+    <p class="lead">Everything you need to know — for senders and for providers.</p>
+
+    <h2>For Service Seekers</h2>
+    <p>Getting your items delivered has never been easier with DeliverIt:</p>
+    <ol>
+      <li><strong>Post a Delivery Request:</strong> Describe what you need delivered, specify pickup and delivery locations, and set your budget.</li>
+      <li><strong>Get Matched:</strong> Our system automatically connects you with verified providers in your area who have the right vehicle.</li>
+      <li><strong>Track in Real-Time:</strong> Once a provider accepts your delivery, track their progress on our interactive map.</li>
+      <li><strong>Safe &amp; Secure:</strong> Items are insured during transit, and you can communicate directly with your provider.</li>
+      <li><strong>Confirm &amp; Review:</strong> After successful delivery, confirm receipt and leave a review.</li>
+    </ol>
+
+    <h2>For Delivery Providers</h2>
+    <p>Earn money by providing delivery services with DeliverIt:</p>
+    <ol>
+      <li><strong>Create Your Profile:</strong> Register as a provider, add your vehicle details, and get verified.</li>
+      <li><strong>Browse Available Deliveries:</strong> View delivery requests in your area that match your vehicle type.</li>
+      <li><strong>Accept Deliveries:</strong> Choose deliveries that fit your schedule and earn competitive rates.</li>
+      <li><strong>Manage Your Route:</strong> Use optimized routing to complete multiple deliveries efficiently.</li>
+      <li><strong>Build Your Reputation:</strong> Earn positive reviews to unlock more opportunities and higher rates.</li>
+    </ol>
+
+    <h2 id="safety">Our Safety Features</h2>
+    <p>Your safety and security are our top priorities:</p>
+    <ul>
+      <li><strong>Verified Providers:</strong> All providers undergo thorough background checks.</li>
+      <li><strong>Real-Time Tracking:</strong> Track your delivery every step of the way.</li>
+      <li><strong>Secure Payments:</strong> All transactions are processed securely through our platform.</li>
+      <li><strong>Insurance Coverage:</strong> All deliveries are covered by our insurance policy.</li>
+      <li><strong>24/7 Support:</strong> Our support team is always available to assist you.</li>
+      <li><strong>Emergency Contact:</strong> Direct access to emergency services if needed.</li>
+    </ul>
+
+    <p>Ready to get started? <a href="register.html">Sign up now</a> and experience the future of delivery.</p>
+
+    <a href="../index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">&copy; <span id="year"></span> DeliverIt Zimbabwe. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const t = document.querySelector('.nav-toggle'), l = document.querySelector('.nav-links');
+    if (t && l) t.addEventListener('click', () => l.classList.toggle('open'));
+  </script>
+</body>
+</html>
