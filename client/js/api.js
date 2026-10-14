@@ -6,7 +6,6 @@
 // If the page was served from a LAN IP, use that IP for the API.
 // If loaded from localhost/127.0.0.1, keep using localhost.
 const API_BASE = `${window.location.protocol}//${window.location.host}/api`;
-
 console.log(`🔌 API base: ${API_BASE}`);;
 
 console.log(`🔌 API base: ${API_BASE}`);
