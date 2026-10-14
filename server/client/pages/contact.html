@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us — DeliverIt</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="brand"><i class="fa-solid fa-truck-fast"></i> DeliverIt</a>
+      <button class="nav-toggle" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+      <div class="nav-links">
+        <a href="track.html">Track</a>
+        <a href="login.html" class="btn btn-outline">Login</a>
+        <a href="register.html" class="btn btn-primary">Sign Up</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="info-page">
+    <h1>Contact Us</h1>
+    <p class="lead">We're here to help. Reach out through any of the channels below.</p>
+
+    <h2>Call Us</h2>
+    <p>
+      <a href="tel:+263780666468">+263 780 666 468</a><br>
+      <a href="tel:+263788617699">+263 788 617 699</a>
+    </p>
+
+    <h2>WhatsApp</h2>
+    <p>
+      <a href="https://wa.me/263780666468" target="_blank" rel="noopener">+263 780 666 468</a><br>
+      <a href="https://wa.me/263788617699" target="_blank" rel="noopener">+263 788 617 699</a>
+    </p>
+
+    <h2>Email Us</h2>
+    <p><a href="mailto:info@deliveritzim.com">info@deliveritzim.com</a></p>
+
+    <h2>Business Hours</h2>
+    <ul>
+      <li>Monday – Friday: 8:00 AM – 8:00 PM</li>
+      
+      <li>Sunday: 10:00 AM – 4:00 PM</li>
+    </ul>
+
+    <h2>Emergency Support</h2>
+    <p>For urgent delivery issues or safety concerns, use the emergency contact feature in the app or call our emergency line.</p>
+
+    <a href="../index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">&copy; <span id="year"></span> DeliverIt Zimbabwe. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const t = document.querySelector('.nav-toggle'), l = document.querySelector('.nav-links');
+    if (t && l) t.addEventListener('click', () => l.classList.toggle('open'));
+  </script>
+</body>
+</html>

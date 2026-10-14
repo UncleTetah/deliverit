@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — DeliverIt</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="brand"><i class="fa-solid fa-truck-fast"></i> DeliverIt</a>
+      <button class="nav-toggle" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+      <div class="nav-links">
+        <a href="track.html">Track</a>
+        <a href="login.html" class="btn btn-outline">Login</a>
+        <a href="register.html" class="btn btn-primary">Sign Up</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="info-page">
+    <h1>Terms of Service</h1>
+    <p class="lead">Welcome to DeliverIt. By using our platform, you agree to the following terms.</p>
+
+    <h2>Service Description</h2>
+    <p>DeliverIt connects service seekers with delivery providers. We facilitate the matching process but are not a party to the actual delivery contract between users.</p>
+
+    <h2>User Responsibilities</h2>
+    <ul>
+      <li>Provide accurate and complete information</li>
+      <li>Comply with all applicable laws</li>
+      <li>Treat other users with respect and professionalism</li>
+      <li>Not engage in fraudulent or illegal activities</li>
+      <li>Maintain the security of your account credentials</li>
+    </ul>
+
+    <h2>Delivery Providers</h2>
+    <p>Providers are independent contractors, not employees of DeliverIt. Providers are responsible for:</p>
+    <ul>
+      <li>Maintaining valid licenses and insurance</li>
+      <li>Ensuring vehicle safety and compliance</li>
+      <li>Delivering items safely and on time</li>
+      <li>Communicating professionally with service seekers</li>
+    </ul>
+
+    <h2>Service Seekers</h2>
+    <ul>
+      <li>Provide accurate delivery information</li>
+      <li>Ensure items are properly packaged</li>
+      <li>Be available for pickup and delivery</li>
+      <li>Provide clear instructions to providers</li>
+    </ul>
+
+    <h2>Payments and Fees</h2>
+    <p>DeliverIt charges a service fee for each completed delivery. All payments are processed securely through our platform.</p>
+
+    <h2>Limitation of Liability</h2>
+    <p>DeliverIt is not liable for any indirect, incidental, or consequential damages arising from the use of our services.</p>
+
+    <a href="../index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">&copy; <span id="year"></span> DeliverIt Zimbabwe. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const t = document.querySelector('.nav-toggle'), l = document.querySelector('.nav-links');
+    if (t && l) t.addEventListener('click', () => l.classList.toggle('open'));
+  </script>
+</body>
+</html>

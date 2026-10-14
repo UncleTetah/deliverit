@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Delivery — DeliverIt</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="brand">
+        <i class="fa-solid fa-truck-fast"></i> DeliverIt
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div class="nav-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="track.html">Track</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container" style="padding-top:2rem; padding-bottom:3rem;">
+    <header class="page-header">
+      <div>
+        <h1>New Delivery</h1>
+        <p>Click the map to set pickup, then click again to set dropoff.</p>
+      </div>
+      <a href="dashboard.html" class="btn btn-ghost">
+        <i class="fa-solid fa-arrow-left"></i> Back
+      </a>
+    </header>
+
+    <div class="grid-2" style="grid-template-columns: 1.2fr 1fr; align-items:start;">
+      <form id="delivery-form" class="card">
+
+        <h3 style="margin-bottom:1rem;">Pickup</h3>
+        <div class="form-group">
+          <label for="pickup_address">Address</label>
+          <input id="pickup_address" name="pickup_address" placeholder="e.g. 12 Samora Machel Ave, Harare" required>
+        </div>
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="pickup_lat">Latitude</label>
+            <input id="pickup_lat" name="pickup_lat" type="number" step="0.000001" required>
+          </div>
+          <div class="form-group">
+            <label for="pickup_lng">Longitude</label>
+            <input id="pickup_lng" name="pickup_lng" type="number" step="0.000001" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="pickup_contact">Pickup contact <span class="form-hint">(optional)</span></label>
+          <input id="pickup_contact" name="pickup_contact" placeholder="Name & phone">
+        </div>
+
+        <h3 style="margin:1.5rem 0 1rem;">Dropoff</h3>
+        <div class="form-group">
+          <label for="dropoff_address">Address</label>
+          <input id="dropoff_address" name="dropoff_address" placeholder="e.g. 45 Borrowdale Rd, Harare" required>
+        </div>
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="dropoff_lat">Latitude</label>
+            <input id="dropoff_lat" name="dropoff_lat" type="number" step="0.000001" required>
+          </div>
+          <div class="form-group">
+            <label for="dropoff_lng">Longitude</label>
+            <input id="dropoff_lng" name="dropoff_lng" type="number" step="0.000001" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="dropoff_contact">Dropoff contact <span class="form-hint">(optional)</span></label>
+          <input id="dropoff_contact" name="dropoff_contact" placeholder="Name & phone">
+        </div>
+
+        <h3 style="margin:1.5rem 0 1rem;">Package</h3>
+        <div class="form-group">
+          <label for="package_desc">Description</label>
+          <input id="package_desc" name="package_desc" placeholder="e.g. Small parcel, documents">
+        </div>
+        <div class="form-group">
+          <label for="package_weight_kg">Weight (kg) <span class="form-hint">(optional)</span></label>
+          <input id="package_weight_kg" name="package_weight_kg" type="number" step="0.01" min="0">
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block btn-lg">
+          <i class="fa-solid fa-paper-plane"></i> Create Delivery
+        </button>
+        <p class="form-error" id="error" hidden></p>
+      </form>
+
+      <div>
+        <div id="map" class="map" style="height:520px; margin:0;"></div>
+        <p class="form-hint mt-2">Tip: first click sets pickup (green), second click sets dropoff (red).</p>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/map.js"></script>
+  <script src="../js/pages/create-delivery.js"></script>
+</body>
+</html>

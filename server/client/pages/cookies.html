@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cookie Policy — DeliverIt</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="brand"><i class="fa-solid fa-truck-fast"></i> DeliverIt</a>
+      <button class="nav-toggle" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+      <div class="nav-links">
+        <a href="track.html">Track</a>
+        <a href="login.html" class="btn btn-outline">Login</a>
+        <a href="register.html" class="btn btn-primary">Sign Up</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="info-page">
+    <h1>Cookie Policy</h1>
+    <p class="lead">This Cookie Policy explains how DeliverIt uses cookies and similar technologies.</p>
+
+    <h2>What Are Cookies?</h2>
+    <p>Cookies are small text files placed on your device when you visit a website. They help websites work more efficiently and provide information to their owners.</p>
+
+    <h2>How We Use Cookies</h2>
+    <ul>
+      <li><strong>Authentication:</strong> To keep you logged in during your session.</li>
+      <li><strong>Preferences:</strong> To remember your settings.</li>
+      <li><strong>Analytics:</strong> To understand how visitors use our platform.</li>
+      <li><strong>Security:</strong> To help detect and prevent fraudulent activity.</li>
+    </ul>
+
+    <h2>Types of Cookies We Use</h2>
+    <ul>
+      <li><strong>Essential cookies:</strong> Required for the platform to function.</li>
+      <li><strong>Performance cookies:</strong> Help us improve how DeliverIt works.</li>
+      <li><strong>Functionality cookies:</strong> Remember your preferences.</li>
+    </ul>
+
+    <h2>Managing Cookies</h2>
+    <p>You can control cookies through your browser settings. Disabling certain cookies may affect the functionality of our platform.</p>
+
+    <p>Questions? Email us at <a href="mailto:info@deliveritzim.com">info@deliveritzim.com</a>.</p>
+
+    <a href="../index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">&copy; <span id="year"></span> DeliverIt Zimbabwe. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const t = document.querySelector('.nav-toggle'), l = document.querySelector('.nav-links');
+    if (t && l) t.addEventListener('click', () => l.classList.toggle('open'));
+  </script>
+</body>
+</html>

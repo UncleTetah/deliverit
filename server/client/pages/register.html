@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up — DeliverIt</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body class="auth-page">
+  <div class="auth-card">
+    <a href="../index.html" class="brand">
+      <i class="fa-solid fa-truck-fast"></i> DeliverIt
+    </a>
+    <h2>Create your account</h2>
+    <p class="auth-sub">It only takes a minute.</p>
+
+    <form id="register-form" novalidate>
+      <div class="form-group">
+        <label for="full_name">Full name</label>
+        <input id="full_name" name="full_name" type="text" placeholder="Jane Doe" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone (optional)</label>
+        <input id="phone" name="phone" type="tel" placeholder="+263 …">
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" placeholder="At least 8 characters" minlength="8" required>
+      </div>
+
+      <div class="form-group">
+        <label>How will you use DeliverIt?</label>
+        <div class="role-picker">
+          <label class="role-option">
+            <input type="radio" name="role" value="customer" checked>
+            <div>
+              <strong>Request delivery service</strong>
+              <small>Send a package and track it live</small>
+            </div>
+          </label>
+          <label class="role-option">
+            <input type="radio" name="role" value="courier">
+            <div>
+              <strong>Provide delivery service</strong>
+              <small>Accept jobs and earn per delivery</small>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+      <p class="form-error" id="error" hidden></p>
+    </form>
+
+    <p class="auth-alt">
+      Already have an account? <a href="login.html">Login</a>
+    </p>
+  </div>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/pages/register.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+// =========================================================
+// DeliverIt — map.js
+// Leaflet helpers. Assumes Leaflet is loaded on the page.
+// =========================================================
+
+window.DMap = {
+  create(elementId, { center = [-17.8252, 31.0335], zoom = 12 } = {}) {
+    const el = document.getElementById(elementId);
+    if (!el || typeof L === 'undefined') return null;
+
+    const map = L.map(el).setView(center, zoom);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; OpenStreetMap',
+    }).addTo(map);
+
+    return map;
+  },
+
+  marker(map, lat, lng, { color = '#2563eb', label = '' } = {}) {
+    const icon = L.divIcon({
+      className: '',
+      html: `
+        <div style="
+          background:${color};
+          width:16px;height:16px;border-radius:50%;
+          border:3px solid #fff;
+          box-shadow:0 0 0 2px ${color};
+        "></div>`,
+      iconSize: [16, 16],
+      iconAnchor: [8, 8],
+    });
+    const m = L.marker([lat, lng], { icon }).addTo(map);
+    if (label) m.bindPopup(label);
+    return m;
+  },
+
+  line(map, points, { color = '#2563eb' } = {}) {
+    return L.polyline(points, { color, weight: 3, opacity: 0.8 }).addTo(map);
+  },
+
+  fit(map, points) {
+    if (!points.length) return;
+    map.fitBounds(L.latLngBounds(points), { padding: [30, 30] });
+  },
+};

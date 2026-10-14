@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — DeliverIt</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="brand">
+        <i class="fa-solid fa-truck-fast"></i> DeliverIt
+      </a>
+      <div class="nav-links">
+        <a href="dashboard.html" class="active">Dashboard</a>
+        <a href="track.html">Track</a>
+        <span id="greeting" class="nav-user"></span>
+        <button id="logout" class="btn btn-outline">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container dashboard">
+    <header class="page-header">
+      <div>
+        <h1 id="page-title">Dashboard</h1>
+        <p id="page-subtitle" class="muted">Manage your deliveries and track their status.</p>
+      </div>
+      <a id="new-delivery-btn" href="create-delivery.html" class="btn btn-primary" hidden>
+        <i class="fa-solid fa-plus"></i> New Delivery
+      </a>
+    </header>
+
+    <section id="stats" class="stats-grid"></section>
+
+    <!-- Courier: available jobs -->
+    <section id="available-section" hidden>
+      <h2>Available Jobs Near You</h2>
+      <div id="available-list" class="delivery-list">
+        <p class="muted">Loading…</p>
+      </div>
+    </section>
+
+    <!-- Courier: my assigned jobs -->
+    <section id="assigned-section" hidden>
+      <h2>My Active Runs</h2>
+      <div id="assigned-list" class="delivery-list">
+        <p class="muted">Loading…</p>
+      </div>
+    </section>
+
+    <!-- Customer: my deliveries -->
+    <section id="customer-section" hidden>
+      <h2>Your Deliveries</h2>
+      <div id="customer-list" class="delivery-list">
+        <p class="muted">Loading…</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/pages/dashboard.js"></script>
+</body>
+</html>
