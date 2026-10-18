@@ -15,21 +15,8 @@ import { notFound, errorHandler } from './middleware/error.js';
 export function createApp() {
   const app = express();
 
-  // Configure Helmet to allow external CDNs (Leaflet, FontAwesome, Google Fonts)
-  app.use(
-    helmet({
-      contentSecurityPolicy: {
-        directives: {
-          defaultSrc: ["'self'"],
-          scriptSrc: ["'self'", "'unsafe-inline'", "https://unpkg.com", "https://cdnjs.cloudflare.com"],
-          styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://unpkg.com", "https://cdnjs.cloudflare.com"],
-          fontSrc: ["'self'", "https://fonts.gstatic.com", "https://cdnjs.cloudflare.com"],
-          imgSrc: ["'self'", "data:", "https://*.tile.openstreetmap.org", "https://unpkg.com", "blob:"],
-          connectSrc: ["'self'", "https://unpkg.com"],
-        },
-      },
-    })
-  );
+  // Disable Content Security Policy completely
+  app.use(helmet({ contentSecurityPolicy: false }));
   
   app.use(cors({ origin: env.corsOrigin, credentials: true }));
   app.use(express.json({ limit: '1mb' }));
