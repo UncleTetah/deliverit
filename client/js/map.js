@@ -6,9 +6,9 @@ window.DMap = {
 
     const map = L.map(el).setView(center, zoom);
     
-    // Using OpenFreeMap - Free, no API key, no limits
-    L.tileLayer('https://tiles.openfreemap.org/styles/positron/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://openfreemap.org/">OpenFreeMap</a>',
+    // Using Esri World Street Map - highly reliable, no API key needed for light usage
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+      attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012',
       maxZoom: 19
     }).addTo(map);
 
