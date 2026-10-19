@@ -8,10 +8,13 @@ window.DMap = {
     const el = document.getElementById(elementId);
     if (!el || typeof L === 'undefined') return null;
 
-    const map = L.map(el).setView(center, zoom);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '&copy; OpenStreetMap',
+       const map = L.map(el).setView(center, zoom);
+    
+    // Using CartoDB's free, reliable tile server
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 20
     }).addTo(map);
 
     return map;
