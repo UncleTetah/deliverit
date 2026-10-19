@@ -6,8 +6,8 @@ window.DMap = {
 
     const map = L.map(el).setView(center, zoom);
     
-    // Using CartoDB Positron - Highly reliable, full OSM details, AWS hosted
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    // Using CARTO Positron with the API key
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png?api_key=cb1_4oqj_1_07ccaed7c956cf3e83da32f3', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
       subdomains: 'abcd',
       maxZoom: 20
