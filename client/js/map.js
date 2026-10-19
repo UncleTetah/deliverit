@@ -1,20 +1,15 @@
-// =========================================================
-// DeliverIt — map.js
-// Leaflet helpers. Assumes Leaflet is loaded on the page.
-// =========================================================
-
+// Leaflet helpers — assumes Leaflet is already loaded on the page.
 window.DMap = {
   create(elementId, { center = [-17.8252, 31.0335], zoom = 12 } = {}) {
     const el = document.getElementById(elementId);
     if (!el || typeof L === 'undefined') return null;
 
-       const map = L.map(el).setView(center, zoom);
+    const map = L.map(el).setView(center, zoom);
     
-    // Using CartoDB's free, reliable tile server
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-      subdomains: 'abcd',
-      maxZoom: 20
+    // Using OpenFreeMap - Free, no API key, no limits
+    L.tileLayer('https://tiles.openfreemap.org/styles/positron/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://openfreemap.org/">OpenFreeMap</a>',
+      maxZoom: 19
     }).addTo(map);
 
     return map;
@@ -23,13 +18,10 @@ window.DMap = {
   marker(map, lat, lng, { color = '#2563eb', label = '' } = {}) {
     const icon = L.divIcon({
       className: '',
-      html: `
-        <div style="
-          background:${color};
-          width:16px;height:16px;border-radius:50%;
-          border:3px solid #fff;
-          box-shadow:0 0 0 2px ${color};
-        "></div>`,
+      html: `<div style="
+        background:${color};width:16px;height:16px;border-radius:50%;
+        border:3px solid #fff;box-shadow:0 0 0 2px ${color};
+      "></div>`,
       iconSize: [16, 16],
       iconAnchor: [8, 8],
     });
