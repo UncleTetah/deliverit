@@ -5,6 +5,7 @@ const user = Auth.currentUser();
 // 🛑 Redirect Admins to the Admin Panel
 if (user.role === 'admin') {
   window.location.href = 'admin.html';
+  return; // Stop executing the rest of this file
 }
 
 document.getElementById('greeting').textContent = `Hi, ${user.full_name.split(' ')[0]}`;
@@ -233,19 +234,6 @@ function bindCourierActions() {
       }
     });
   });
-}
-
-// ---------------- Admin view (Fallback) ----------------
-async function loadAdminView() {
-  try {
-    const { deliveries } = await API.get('/deliveries');
-    renderStats(deliveries);
-    els.customerList.innerHTML = deliveries.length
-      ? deliveries.map(renderCustomerCard).join('')
-      : '<p class="muted">No deliveries.</p>';
-  } catch (err) {
-    els.customerList.innerHTML = `<p class="form-error">${escapeHtml(err.message)}</p>`;
-  }
 }
 
 // ---------------- Shared ----------------
