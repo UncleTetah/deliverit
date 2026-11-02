@@ -123,7 +123,7 @@ export async function create(user, payload) {
   });
 }
 
-// ---------- Accept (with concurrency + capacity + completeness checks) ----------
+// ---------- Accept (with concurrency + capacity + completeness + verification checks) ----------
 export async function accept(id, user) {
   if (user.role !== 'courier') throw new HttpError(403, 'Only couriers can accept');
 
@@ -139,6 +139,11 @@ export async function accept(id, user) {
 
     if (!isProfileComplete(profile)) {
       throw new HttpError(400, 'Complete your vehicle and licence details before accepting jobs');
+    }
+
+    // 🛑 THE VERIFICATION GATE 🛑
+    if (!profile.is_verified) {
+      throw new HttpError(403, 'Your account is pending admin verification. You cannot accept jobs yet.');
     }
 
     // 2. Enforce concurrent job limit

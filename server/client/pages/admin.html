@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Control Panel — DeliverIt</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  <style>
+    .admin-tabs { display: flex; gap: 1rem; margin-bottom: 2rem; border-bottom: 1px solid var(--color-border); padding-bottom: 1rem; }
+    .admin-tab { background: none; border: none; font-size: 1rem; font-weight: 500; color: var(--color-muted); cursor: pointer; padding: 0.5rem 1rem; border-radius: var(--radius-sm); }
+    .admin-tab.active { background: var(--color-primary); color: white; }
+    .admin-table { width: 100%; border-collapse: collapse; background: white; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); }
+    .admin-table th, .admin-table td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--color-border); font-size: 0.9rem; }
+    .admin-table th { background: #f8f9fa; font-weight: 600; color: var(--color-muted); }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="brand"><i class="fa-solid fa-truck-fast"></i> DeliverIt</a>
+      <div class="nav-links">
+        <span class="nav-user">Admin Panel</span>
+        <button id="logout" class="btn btn-outline">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container" style="padding-top: 2rem;">
+    <header class="page-header">
+      <h1>Control Panel</h1>
+    </header>
+
+    <div class="admin-tabs">
+      <button class="admin-tab active" data-tab="users">Manage Users & Couriers</button>
+      <button class="admin-tab" data-tab="deliveries">All Deliveries</button>
+    </div>
+
+    <!-- Users Tab -->
+    <div id="tab-users">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="users-list"></tbody>
+      </table>
+    </div>
+
+    <!-- Deliveries Tab -->
+    <div id="tab-deliveries" hidden>
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Customer</th>
+            <th>Courier</th>
+            <th>Status</th>
+            <th>Created</th>
+          </tr>
+        </thead>
+        <tbody id="deliveries-list"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script>
+    // Basic admin dashboard logic
+    if (!Auth.requireAuth('login.html')) throw new Error('redirecting');
+    const user = Auth.currentUser();
+    if (user.role !== 'admin') window.location.href = 'dashboard.html';
+    Auth.bindLogout('#logout');
+
+    // Tabs
+    document.querySelectorAll('.admin-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('tab-users').hidden = tab.dataset.tab !== 'users';
+        document.getElementById('tab-deliveries').hidden = tab.dataset.tab !== 'deliveries';
+      });
+    });
+
+    // Load Data
+    async function loadUsers() {
+      const { users } = await API.get('/admin/users');
+      const tbody = document.getElementById('users-list');
+      tbody.innerHTML = users.map(u => `
+        <tr>
+          <td>${u.public_code}</td>
+          <td>${u.full_name}</td>
+          <td>${u.email}</td>
+          <td><span class="badge badge-${u.role === 'admin' ? 'delivered' : u.role === 'courier' ? 'accepted' : 'pending'}">${u.role}</span></td>
+          <td>${u.role === 'courier' ? (u.is_verified ? '✅ Verified' : '⏳ Pending') : '—'}</td>
+          <td>
+            ${u.role === 'courier' && !u.is_verified 
+              ? `<button class="btn btn-primary" onclick="verifyUser('${u.id}')">Verify</button>` 
+              : ''}
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    async function loadDeliveries() {
+      const { deliveries } = await API.get('/admin/deliveries');
+      const tbody = document.getElementById('deliveries-list');
+      tbody.innerHTML = deliveries.map(d => `
+        <tr>
+          <td>${d.public_code}</td>
+          <td>${d.customer_name}</td>
+          <td>${d.courier_name || 'Unassigned'}</td>
+          <td><span class="badge badge-${d.status}">${d.status}</span></td>
+          <td>${new Date(d.created_at).toLocaleDateString()}</td>
+        </tr>
+      `).join('');
+    }
+
+    window.verifyUser = async (id) => {
+      if (!confirm('Are you sure you want to verify this courier?')) return;
+      try {
+        await API.patch(`/admin/couriers/${id}/verify`);
+        alert('Courier verified!');
+        loadUsers();
+      } catch (err) { alert(err.message); }
+    };
+
+    loadUsers();
+    loadDeliveries();
+  </script>
+</body>
+</html>

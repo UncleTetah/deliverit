@@ -4,7 +4,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import path from 'path';
 import { fileURLToPath } from 'url';
-
+import adminRoutes from './modules/admin/admin.routes.js';
 import { env } from './config/env.js';
 import authRoutes from './modules/auth/auth.routes.js';
 import userRoutes from './modules/users/users.routes.js';
@@ -17,7 +17,7 @@ export function createApp() {
 
   // Disable CSP to allow Leaflet and external CDNs
   app.use(helmet({ contentSecurityPolicy: false }));
-  
+  app.use('/api/admin', adminRoutes);
   app.use(cors({ origin: env.corsOrigin, credentials: true }));
   app.use(express.json({ limit: '1mb' }));
   if (!env.isProd) app.use(morgan('dev'));

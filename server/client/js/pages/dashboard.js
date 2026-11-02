@@ -1,6 +1,12 @@
 if (!Auth.requireAuth('login.html')) throw new Error('redirecting');
 
 const user = Auth.currentUser();
+
+// 🛑 Redirect Admins to the Admin Panel
+if (user.role === 'admin') {
+  window.location.href = 'admin.html';
+}
+
 document.getElementById('greeting').textContent = `Hi, ${user.full_name.split(' ')[0]}`;
 Auth.bindLogout('#logout');
 
@@ -29,11 +35,6 @@ if (user.role === 'customer') {
   els.availSection.hidden = false;
   els.assignedSection.hidden = false;
   ensureCourierProfileThenLoad();
-} else {
-  els.title.textContent = 'Admin';
-  els.subtitle.textContent = 'All deliveries.';
-  els.customerSection.hidden = false;
-  loadAdminView();
 }
 
 // ---------------- Courier bootstrap ----------------
@@ -47,25 +48,27 @@ async function ensureCourierProfileThenLoad() {
       profile.license_class && profile.license_number;
 
     if (!complete) {
-      showProfileBanner();
+      showProfileBanner('Finish your courier profile', 'Add your vehicle and licence details so you can start accepting jobs.');
+    } else if (!profile.is_verified) {
+      showProfileBanner('Account Pending Verification', 'Your profile is complete, but an Admin needs to verify your account before you can accept jobs.');
     }
   } catch {
-    // no profile at all — definitely need one
-    showProfileBanner();
+    showProfileBanner('Finish your courier profile', 'Add your vehicle and licence details so you can start accepting jobs.');
   }
   loadCourierView();
 }
 
-function showProfileBanner() {
+function showProfileBanner(title, text) {
   const banner = document.createElement('div');
   banner.className = 'card';
   banner.style.borderLeft = '4px solid var(--color-primary)';
+  banner.style.backgroundColor = '#eff6ff';
   banner.innerHTML = `
-    <strong>Finish your courier profile</strong>
-    <p class="muted">Add your vehicle and licence details so you can start accepting jobs.</p>
+    <strong>${title}</strong>
+    <p class="muted" style="margin-top:0.25rem">${text}</p>
     <p style="margin-top:.75rem">
       <a class="btn btn-primary" href="courier-profile.html">
-        <i class="fa-solid fa-id-card"></i> Complete Profile
+        <i class="fa-solid fa-id-card"></i> View Profile
       </a>
     </p>
   `;
@@ -232,7 +235,7 @@ function bindCourierActions() {
   });
 }
 
-// ---------------- Admin view ----------------
+// ---------------- Admin view (Fallback) ----------------
 async function loadAdminView() {
   try {
     const { deliveries } = await API.get('/deliveries');
